@@ -16,12 +16,13 @@ object CreateRDD {
 
 
     //2。从外部存储中创建:默认情况下可以读取项目路径，也可以读取其他路径包括hdfs
-    val RDD1: RDD[String] = sc.textFile("in",2)   //后面的2表示分区
-    val RDD2: RDD[String] = sc.textFile("hdfs://hadoop102:9000/RELEASE")
+//    val RDD1: RDD[String] = sc.textFile("in",2)   //后面的2表示分区
+//    val RDD2: RDD[String] = sc.textFile("hdfs://hadoop102:9000/RELEASE")
 
     listRDD.collect().foreach(println)
+    println(listRDD2.collect().mkString(","))
 
     //将RDD的数据保存到文件
-    listRDD.saveAsTextFile("output")
+//    listRDD.saveAsTextFile("output")
   }
 }
