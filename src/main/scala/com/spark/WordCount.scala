@@ -2,7 +2,7 @@ package com.spark
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
-; object WordCount{
+object WordCount{
   def main(args: Array[String]): Unit = {
     //1.创建SparkConfig对象
     val config: SparkConf = new SparkConf().setMaster("local[*]").setAppName("WordCount")
@@ -19,8 +19,7 @@ import org.apache.spark.{SparkConf, SparkContext}
     val wordToSum: RDD[(String, Int)] = wordToOne.reduceByKey((_: Int)+(_: Int))
     //6.采集结果数据
     val result: Array[(String, Int)] = wordToSum.collect()
-
-    //7.将统计结果大隐刀控制台
+    //7.将统计结果显示控制台
     result.foreach(println)
   }
 }

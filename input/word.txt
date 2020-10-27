@@ -1,4 +1,5 @@
 hello scala
-hello  spark
+hello spark
 hello java
 hello hadoop
+hello scala
