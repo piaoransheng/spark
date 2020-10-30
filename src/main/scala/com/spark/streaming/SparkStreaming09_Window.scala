@@ -15,6 +15,10 @@ object SparkStreaming09_Window {
     val wordList: DStream[String] = ds.flatMap((_: String).split(" "))
     val wordToOne: DStream[(String, Int)] = wordList.map((_: String,1))
     val window: DStream[(String, Int)] = wordToOne.window(Seconds(9))
+    //Seconds(9)表示窗口的范围大小，9s就是三个采集周期
+    //Seconds(6)表示滑动幅度，没有写的话就是默认采集周期为3s，写的话就是每次滑动6s
+    //上面两个：窗口的范围大小和滑动幅度都应该为采集周期的整数倍
+//    val window: DStream[(String, Int)] = wordToOne.window(Seconds(9),Seconds(6))
     val resultDS: DStream[(String, Int)] = window.reduceByKey((_: Int)+(_: Int) )
     resultDS.print()
 
