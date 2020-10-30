@@ -5,7 +5,7 @@ import org.apache.spark.streaming.dstream.{DStream, ReceiverInputDStream}
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 //数据转成有状态
-object SparkStreaming08_State {
+object SparkStreaming08_UpdateStateByKey {
   def main(args: Array[String]): Unit = {
     val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("streaming")
     val ssc = new StreamingContext(sparkConf, Seconds(3))
